@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections;
-using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Npgsql;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
-using Npgsql;
 
 class Program   
 {
