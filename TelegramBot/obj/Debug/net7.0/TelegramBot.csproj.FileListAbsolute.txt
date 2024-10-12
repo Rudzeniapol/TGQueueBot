@@ -13,10 +13,10 @@ C:\Users\ffgg9\RiderProjects\TelegramBot\TelegramBot\obj\Debug\net7.0\TelegramBo
 C:\Users\ffgg9\RiderProjects\TelegramBot\TelegramBot\obj\Debug\net7.0\TelegramBot.AssemblyInfoInputs.cache
 C:\Users\ffgg9\RiderProjects\TelegramBot\TelegramBot\obj\Debug\net7.0\TelegramBot.AssemblyInfo.cs
 C:\Users\ffgg9\RiderProjects\TelegramBot\TelegramBot\obj\Debug\net7.0\TelegramBot.csproj.CoreCompileInputs.cache
-C:\Users\ffgg9\RiderProjects\TelegramBot\TelegramBot\obj\Debug\net7.0\TelegramBot.sourcelink.json
-C:\Users\ffgg9\RiderProjects\TelegramBot\TelegramBot\obj\Debug\net7.0\Telegram.C5E56D06.Up2Date
 C:\Users\ffgg9\RiderProjects\TelegramBot\TelegramBot\obj\Debug\net7.0\TelegramBot.dll
 C:\Users\ffgg9\RiderProjects\TelegramBot\TelegramBot\obj\Debug\net7.0\refint\TelegramBot.dll
 C:\Users\ffgg9\RiderProjects\TelegramBot\TelegramBot\obj\Debug\net7.0\TelegramBot.pdb
 C:\Users\ffgg9\RiderProjects\TelegramBot\TelegramBot\obj\Debug\net7.0\TelegramBot.genruntimeconfig.cache
 C:\Users\ffgg9\RiderProjects\TelegramBot\TelegramBot\obj\Debug\net7.0\ref\TelegramBot.dll
+C:\Users\ffgg9\RiderProjects\TelegramBot\TelegramBot\obj\Debug\net7.0\TelegramBot.sourcelink.json
+C:\Users\ffgg9\RiderProjects\TelegramBot\TelegramBot\obj\Debug\net7.0\Telegram.C5E56D06.Up2Date

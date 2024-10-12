@@ -188,11 +188,14 @@ class Program
                 {
                     var queueList = $"Текущая очередь по {subjects[subjectNumber-1]}:\n";
                     int position = 1;
-                    while (reader.Read())
+                    if (reader.HasRows)
                     {
-                        string name = reader.GetString(1);
-                        queueList += $"{position}. {name}\n";
-                        position++;
+                        while (reader.Read())
+                        {
+                            string name = reader.GetString(0);
+                            queueList += $"{position}. {name}\n";
+                            position++;
+                        }
                     }
 
                     return position == 1 ? "Очередь пуста" : queueList;
