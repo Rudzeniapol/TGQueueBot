@@ -29,9 +29,9 @@ class Program
             HandleUpdateAsync,
             HandleErrorAsync
         );
-
-        Console.WriteLine("Нажмите Enter для завершения работы...");
-        Console.ReadLine();
+        
+        await Task.Delay(-1);
+        
     }
 
     private static void InitializeDatabase()
