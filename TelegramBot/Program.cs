@@ -64,7 +64,7 @@ class Program
             long userId = update.Message.From.Id;
             var rand = new Random();
 
-            if (messageText.ToLower().StartsWith("/add"))
+            if (messageText.Trim().ToLower().StartsWith("/add"))
             {
                 string[] splitMessage = messageText.Split('_');
                 if (splitMessage.Length == 2 && int.TryParse(splitMessage[1], out int subjectNumber) && subjectNumber >= 1 && subjectNumber <= 3)
@@ -84,7 +84,7 @@ class Program
                     await botClient.SendTextMessageAsync(chatId, "Неверный формат. Используйте /add номер_предмета (например, /add_1)");
                 }
             }
-            else if (messageText.ToLower().StartsWith("/done"))
+            else if (messageText.Trim().ToLower().StartsWith("/done"))
             {
                 string[] splitMessage = messageText.Split('_');
                 if (splitMessage.Length == 2 && int.TryParse(splitMessage[1], out int subjectNumber) && subjectNumber >= 1 && subjectNumber <= 3)
@@ -97,7 +97,7 @@ class Program
                     await botClient.SendTextMessageAsync(chatId, "Неверный формат. Используйте /done номер_предмета (например, /done_1)");
                 }
             }
-            else if (messageText.ToLower().StartsWith("/queue"))
+            else if (messageText.Trim().ToLower().StartsWith("/queue"))
             {
                 string[] splitMessage = messageText.Split('_');
                 if (splitMessage.Length == 2 && int.TryParse(splitMessage[1], out int subjectNumber) && subjectNumber >= 1 && subjectNumber <= 3)
@@ -110,7 +110,7 @@ class Program
                     await botClient.SendTextMessageAsync(chatId, "Неверный формат. Используйте /queue номер_предмета (например, /queue_1)");
                 }
             }
-            else if(messageText.ToLower().Equals("/help"))
+            else if(messageText.Trim().ToLower().Equals("/help"))
             {
                 await botClient.SendTextMessageAsync(chatId,
                     "Доступные команды: \n/help - показать все команды.\n/add_{номер_предмета} - записаться в очередь по тому или иному предмету. Нумерация: РПИ - 1, АКТИОС - 2, АИСД - 3. \n /queue_{номер_предмета} - узнать очередь по тому или иному предмету. \n/done_{номер_предмета} - показать, что ты сдал лабораторную и выйти из очереди.");
@@ -181,7 +181,7 @@ class Program
             connection.Open();
             string tableName = $"Queue_{subjects[subjectNumber-1]}";
 
-            string selectQuery = $"SELECT ID, Name FROM {tableName}";
+            string selectQuery = $"SELECT Name FROM {tableName}";
             using (var command = new NpgsqlCommand(selectQuery, connection))
             {
                 using (var reader = command.ExecuteReader())
