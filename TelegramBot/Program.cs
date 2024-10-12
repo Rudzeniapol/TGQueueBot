@@ -13,8 +13,8 @@ class Program
 {
     private static ITelegramBotClient botClient;
     private static string[] subjects = {"РПИ", "АКТИОС", "АИСД" };
-    private static string connectionString = Environment.GetEnvironmentVariable("DATABASE_URL");
-    private static string token = Environment.GetEnvironmentVariable("TELEGRAM_BOT_TOKEN");
+    private static string connectionString = "Host=dpg-cs56uklumphs73aounag-a.frankfurt-postgres.render.com;Port=5432;Database=labsqueue;Username=labsqueue_user;Password=mfSfwPE5NA7vGmvqybfikBiRgLJfJFdB;";
+    private static string token = "7405479408:AAGYCC9R_LMADrC9g75kPhJd-ajEPpRDMaU";
     static async Task Main(string[] args)
     {
         botClient = new TelegramBotClient(token);
@@ -45,7 +45,7 @@ class Program
 
                 foreach (var subject in subjects)
                 {
-                    string createTableQuery = $@"CREATE TABLE IF NOT EXISTS Queue_{subject} (ID SERIAL PRIMARY KEY AUTOINCREMENT, Name TEXT, UserId BIGINT)";
+                    string createTableQuery = $@"CREATE TABLE IF NOT EXISTS Queue_{subject} (ID SERIAL PRIMARY KEY, Name TEXT, UserId BIGINT)";
                     using (var command = new NpgsqlCommand(createTableQuery, connection))
                     {
                         command.ExecuteNonQuery();
