@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
-using File = System.IO.File;
 using Npgsql;
 
-class Program
+class Program   
 {
     private static ITelegramBotClient botClient;
     private static string[] subjects = {"РПИ", "АКТИОС", "АИСД" };
@@ -19,8 +18,6 @@ class Program
     private static string token = Environment.GetEnvironmentVariable("TELEGRAM_BOT_TOKEN");
     static async Task Main(string[] args)
     {
-        
-        
         botClient = new TelegramBotClient(token);
         
         var me = await botClient.GetMeAsync();

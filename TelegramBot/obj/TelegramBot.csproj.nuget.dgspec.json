@@ -50,17 +50,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "MySql.Data": {
-              "target": "Package",
-              "version": "[9.0.0, )"
-            },
             "Npgsql": {
               "target": "Package",
               "version": "[8.0.4, )"
-            },
-            "System.Data.SQLite": {
-              "target": "Package",
-              "version": "[1.0.119, )"
             },
             "Telegram.Bot": {
               "target": "Package",
