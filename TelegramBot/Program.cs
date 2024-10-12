@@ -181,7 +181,7 @@ class Program
             connection.Open();
             string tableName = $"Queue_{subjects[subjectNumber-1]}";
 
-            string selectQuery = $"SELECT Name FROM {tableName}";
+            string selectQuery = $"SELECT Name FROM {tableName} ORDER BY ID";
             using (var command = new NpgsqlCommand(selectQuery, connection))
             {
                 using (var reader = command.ExecuteReader())
