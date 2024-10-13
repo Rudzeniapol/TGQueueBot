@@ -13,8 +13,8 @@ class Program
 {
     private static ITelegramBotClient botClient;
     private static string[] subjects = {"РПИ", "АКТИОС"};
-    private static string connectionString = "Host=dpg-cs56uklumphs73aounag-a.frankfurt-postgres.render.com;Port=5432;Database=labsqueue;Username=labsqueue_user;Password=mfSfwPE5NA7vGmvqybfikBiRgLJfJFdB;";
-    private static string token = "7405479408:AAGYCC9R_LMADrC9g75kPhJd-ajEPpRDMaU";
+    private static string connectionString = Environment.GetEnvironmentVariable("DATABASE_URL");
+    private static string token = Environment.GetEnvironmentVariable("TELEGRAM_BOT_TOKEN");
     static async Task Main(string[] args)
     {
         botClient = new TelegramBotClient(token);
@@ -81,6 +81,7 @@ class Program
                 }
                 else
                 {
+                        
                     await botClient.SendTextMessageAsync(chatId, "Неверный формат. Используйте /add номер_предмета (например, /add_1)");
                 }
             }
