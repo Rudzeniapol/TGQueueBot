@@ -12,7 +12,7 @@ using Telegram.Bot.Types.Enums;
 class Program   
 {
     private static ITelegramBotClient botClient;
-    private static string[] subjects = {"РПИ", "АКТИОС", "АИСД" };
+    private static string[] subjects = {"РПИ", "АКТИОС"};
     private static string connectionString = "Host=dpg-cs56uklumphs73aounag-a.frankfurt-postgres.render.com;Port=5432;Database=labsqueue;Username=labsqueue_user;Password=mfSfwPE5NA7vGmvqybfikBiRgLJfJFdB;";
     private static string token = "7405479408:AAGYCC9R_LMADrC9g75kPhJd-ajEPpRDMaU";
     static async Task Main(string[] args)
@@ -67,7 +67,7 @@ class Program
             if (messageText.Trim().ToLower().StartsWith("/add"))
             {
                 string[] splitMessage = messageText.Split('_');
-                if (splitMessage.Length == 2 && int.TryParse(splitMessage[1], out int subjectNumber) && subjectNumber >= 1 && subjectNumber <= 3)
+                if (splitMessage.Length == 2 && int.TryParse(splitMessage[1], out int subjectNumber) && subjectNumber >= 1 && subjectNumber <= 2)
                 {
                     var added = AddUserToQueue(subjectNumber, userName, userId);
                     if (added)
@@ -87,7 +87,7 @@ class Program
             else if (messageText.Trim().ToLower().StartsWith("/done"))
             {
                 string[] splitMessage = messageText.Split('_');
-                if (splitMessage.Length == 2 && int.TryParse(splitMessage[1], out int subjectNumber) && subjectNumber >= 1 && subjectNumber <= 3)
+                if (splitMessage.Length == 2 && int.TryParse(splitMessage[1], out int subjectNumber) && subjectNumber >= 1 && subjectNumber <= 2)
                 {
                     RemoveUserFromQueue(subjectNumber, userName, userId);
                     await botClient.SendTextMessageAsync(chatId, $"Вы удалены из очереди по предмету {subjects[subjectNumber-1]}");
@@ -100,7 +100,7 @@ class Program
             else if (messageText.Trim().ToLower().StartsWith("/queue"))
             {
                 string[] splitMessage = messageText.Split('_');
-                if (splitMessage.Length == 2 && int.TryParse(splitMessage[1], out int subjectNumber) && subjectNumber >= 1 && subjectNumber <= 3)
+                if (splitMessage.Length == 2 && int.TryParse(splitMessage[1], out int subjectNumber) && subjectNumber >= 1 && subjectNumber <= 2)
                 {
                     var queue = GetQueue(subjectNumber);
                     await botClient.SendTextMessageAsync(chatId, queue);
@@ -113,7 +113,7 @@ class Program
             else if(messageText.Trim().ToLower().Equals("/help"))
             {
                 await botClient.SendTextMessageAsync(chatId,
-                    "Доступные команды: \n/help - показать все команды.\n/add_{номер_предмета} - записаться в очередь по тому или иному предмету. Нумерация: РПИ - 1, АКТИОС - 2, АИСД - 3. \n /queue_{номер_предмета} - узнать очередь по тому или иному предмету. \n/done_{номер_предмета} - показать, что ты сдал лабораторную и выйти из очереди.");
+                    "Доступные команды: \n/help - показать все команды.\n/add_{номер_предмета} - записаться в очередь по тому или иному предмету. Нумерация: РПИ - 1, АКТИОС - 2. \n /queue_{номер_предмета} - узнать очередь по тому или иному предмету. \n/done_{номер_предмета} - показать, что ты сдал лабораторную и выйти из очереди.");
             }
             else if (messageText.ToLower().Equals("/start"))
             {
