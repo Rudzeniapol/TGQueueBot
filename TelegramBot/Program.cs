@@ -13,7 +13,7 @@ class Program
     private static ITelegramBotClient botClient;
     private static string[] subjects = { "РПИ", "АКТИОС" };
     private static string databaseFile = "queue.db";
-    private static string token = Environment.GetEnvironmentVariable("TELEGRAM_BOT_TOKEN");
+    private static string token = "7405479408:AAGYCC9R_LMADrC9g75kPhJd-ajEPpRDMaU";//Environment.GetEnvironmentVariable("TELEGRAM_BOT_TOKEN");
 
     //private static string[] names = {"lutatel_risa","ivan_hdjddjs","Александр Шевченко","gaegxh","xxxSkibidiSigmaxxx","Satori12","kostyabelbet","Daniil_Rudenya","TPNE05","temaqt","faysonin","renuxela","ilya2005pan4","ZimaBlue9","leravvvvvvvv","fluffy11lol","who_o","werty2648","v4ssal","alekRadt","verretta","SergeyOrsik","DJ_4_7","push_offset_name","egor_geekin","koan6gi","S1024","valery_kuzh"};
     //private static long[] IDs = {2078365425, 563239661, 5540649849, 988522114, 5167248295, 1134073796, 1256601598, 1251070423, 835559951, 885887534, 827919637, 1041411876, 1009510323, 1955527569, 1192276306, 640411109, 1006764486, 1396730464, 865601041, 824298179, 1296088366, 1232957794, 525033481, 845340305, 894871193, 1464860402, 884211123, 947840361};
