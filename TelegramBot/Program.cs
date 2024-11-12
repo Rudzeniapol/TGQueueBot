@@ -40,35 +40,35 @@ class Program
         if (!File.Exists(databaseFile))
         {
             SQLiteConnection.CreateFile(databaseFile);
-        }
 
-        using (var connection = new SQLiteConnection($"Data Source={databaseFile};Version=3;"))
-        {
-            connection.Open();
-
-            foreach (var subject in subjects)
+            using (var connection = new SQLiteConnection($"Data Source={databaseFile};Version=3;"))
             {
-                string createTableQuery = $@"CREATE TABLE IF NOT EXISTS Queue_{subject} (
+                connection.Open();
+
+                foreach (var subject in subjects)
+                {
+                    string createTableQuery = $@"CREATE TABLE IF NOT EXISTS Queue_{subject} (
                     ID INTEGER PRIMARY KEY AUTOINCREMENT,
                     Name TEXT,
                     UserId INTEGER UNIQUE)";
-                
-                using (var command = new SQLiteCommand(createTableQuery, connection))
-                {
-                    command.ExecuteNonQuery();
+
+                    using (var command = new SQLiteCommand(createTableQuery, connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+
                 }
-                
+                /*for (int i = 1; i <= 28; i++)
+                {
+                    string transferDataBase = $@"INSERT INTO Queue_РПИ (Name, UserId) VALUES (@Name, @UserId)";
+                    using (var command = new SQLiteCommand(transferDataBase, connection))
+                    {
+                        command.Parameters.AddWithValue("@Name", names[i-1]);
+                        command.Parameters.AddWithValue("@UserId", IDs[i-1]);
+                        command.ExecuteNonQuery();
+                    }
+                }}*/
             }
-            /*for (int i = 1; i <= 28; i++)
-            {
-                string transferDataBase = $@"INSERT INTO Queue_РПИ (Name, UserId) VALUES (@Name, @UserId)";
-                using (var command = new SQLiteCommand(transferDataBase, connection))
-                {
-                    command.Parameters.AddWithValue("@Name", names[i-1]);
-                    command.Parameters.AddWithValue("@UserId", IDs[i-1]);
-                    command.ExecuteNonQuery();
-                }
-            }}*/
         }
     }
 
